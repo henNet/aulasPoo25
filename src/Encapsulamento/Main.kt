@@ -16,4 +16,5 @@ fun main(){
 
     denis.fazerAniversario()
     println(denis.nome);
+    println(denis.nome);
 }
