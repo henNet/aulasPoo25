@@ -19,9 +19,20 @@ class Circulo {
 fun main(){
     println("Mexendo com estáticos");
 
-    var circ = Circulo();
-    circ.raio = 20.0;
-    Circulo.areaCirculo(circ.raio);
+
+    Circulo.areaCirculo(20.00);
+
+
+
+
+
+
+
+
+
+
+
+
 
     println(Math.PI);
 
