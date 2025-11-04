@@ -5,7 +5,33 @@ class Order(
     val company: Company,
     val foods: MutableList<Foods> = mutableListOf<Foods>()
 ) {
-    fun realizarPedido(){
-        println("Realizando pedido ...");
+    var payment = Payment(0.0);
+
+    fun placeAnOrder(){
+        println("-------- 🙋‍♂️ Realizando pedido --------");
+        client.showInfo();
+        company.showInfo();
+        println("🍔 Comidas 🍔");
+        foods.forEach { it.showInfo() }
+        println("Preco total: " + getTotalPrice());
+    }
+
+    fun getTotalPrice(): Double{
+        var totalPrice = 0.0;
+
+        for(food in foods){
+            totalPrice = totalPrice + food.price;
+        }
+
+        return totalPrice;
     }
 }
+
+
+
+
+
+
+
+
+

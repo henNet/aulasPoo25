@@ -10,6 +10,8 @@ open class Foods(
         println("Price: $price")
         println("Descricao: $description")
     }
+
+    fun Keven(){}
 }
 
 class Snack(
@@ -21,6 +23,21 @@ class Snack(
     override fun showInfo() {
         super.showInfo()
         println("Categoria: $category");
+    }
+}
+
+class Drink(
+    name: String,
+    price: Double,
+    description: String,
+    var hasAlcool: Boolean) : Foods(name, price, description)
+{
+    override fun showInfo() {
+        super.showInfo()
+        if(hasAlcool)
+            println("Bebida Alcoolica")
+        else
+            println("Bebida Não Alcoolica")
     }
 }
 

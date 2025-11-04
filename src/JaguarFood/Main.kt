@@ -14,7 +14,17 @@ fun main(){
     var snack1 = Snack("Pizza", 45.00,
         "Pizza de frango com catupiry", "Salgados")
 
-    user1.showInfo();
-    company1.showInfo();
-    snack1.showInfo();
+    var drink1 = Drink(
+        "Suco",
+        8.00,
+        "Suco de Laranja",
+        false);
+
+    var order1 = Order(
+        user1,
+        company1,
+        mutableListOf(snack1, drink1)
+    )
+
+    order1.placeAnOrder();
 }
