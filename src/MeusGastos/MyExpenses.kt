@@ -31,7 +31,67 @@ class MyExpenses {
         }catch(e: Exception){ println("Deu erro: ${e.toString()}")}
     }
 
-    fun insertExpense(){
+    fun insertExpense(description: String, value: Double){
+        val sql =
+            "insert into expenses(description, value) values(?, ?)"
 
+        try{
+            val conn = Database.getConnection();
+            val query = conn.prepareStatement(sql);
+
+            query.setString(1, description);
+            query.setDouble(2, value);
+
+            query.executeUpdate();
+
+        }catch(e: Exception){
+            println("Deu erro: ${e.toString()}")
+        }
+    }
+
+    fun deleteExpense(id: Int){
+        val sql =
+            "delete from expenses where id = ?"
+
+        try{
+            val conn = Database.getConnection();
+            val query = conn.prepareStatement(sql);
+
+            query.setInt(1, id);
+
+            println("Status: ${query.executeUpdate()}");
+
+        }catch(e: Exception){
+            println("Deu erro: ${e.toString()}")
+        }
+    }
+
+    fun updateExpense(id: Int, description: String, value: Double){
+        val sql =
+            "update expenses set description = ?, value = ? where id = ?;"
+
+        try{
+            val conn = Database.getConnection();
+            val query = conn.prepareStatement(sql);
+
+            query.setString(1, description);
+            query.setDouble(2, value);
+            query.setInt(3, id);
+
+            println("Status: ${query.executeUpdate()}");
+
+        }catch(e: Exception){
+            println("Deu erro: ${e.toString()}")
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
